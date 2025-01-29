@@ -1,0 +1,84 @@
+managed implementation in class zbp_i_pohdr_1012 unique;
+//strict ( 2 );
+
+define behavior for YI_POHDR_1012 alias Ekko //alias <alias_name>
+persistent table ytbpohdr_1012
+lock master
+//authorization master ( instance )
+etag master LastChangedAt // <field_name>
+{
+  create;
+  update;
+  delete;
+  // field ( readonly ) PONumber;
+  field ( mandatory : create, readonly : update ) PONumber;
+
+  field ( mandatory ) CompanyCode, Currency;
+
+  field ( readonly ) LocalCreatedBy, LocalCreatedAt, LocalLastChangedAt, LocalLastChangedBy, LastChangedAt;
+  association _Ekpo { create; }
+
+  //mapping all field from YTBPOHDR_1012 to YI_POHDR_1012
+  mapping for YTBPOHDR_1012 corresponding
+    {
+      PONumber    = ebeln;
+      CompanyCode = bukrs;
+      DocCategory = bstyp;
+      DocType     = bsart;
+      Vendor      = lifnr;
+      DeleteInd   = del_x;
+      Version     = revno;
+      TotAmt      = netwr;
+      Currency    = waers;
+      Status      = statu;
+      LocalCreatedBy      = local_created_by;
+      LocalCreatedAt      = local_created_at;
+      LocalLastChangedBy  = local_last_changed_by;
+      LocalLastChangedAt  = local_last_changed_at;
+      LastChangedAt       = last_changed_at;
+    }
+}
+
+define behavior for YI_POITM_1012 alias Ekpo //alias <alias_name>
+persistent table ytbpoitm_1012
+lock dependent by _Ekko
+//authorization dependent by _Ekko
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) PONumber;
+  field ( mandatory ) Material, Qty, AmtTot;
+
+  field ( mandatory : create, readonly : update ) ItemNumber;
+
+  field ( readonly ) LocalCreatedBy, LocalCreatedAt, LocalLastChangedAt, LocalLastChangedBy, LastChangedAt;
+
+  association _Ekko;
+  //mapping all field from YTBPOHDR_1011 to YI_POHDR_1012
+  mapping for YTBPOITM_1012 corresponding
+    {
+      PONumber          = ebeln;
+      ItemNumber        = ebelp;
+      Material          = matnr;
+      Plant             = werks;
+      Location          = lgort;
+      Qty               = menge;
+      QtyUnit           = meins;
+      Weight            = ntgew;
+      WeightUnit        = gewei;
+      AmtPerQty         = netwr;
+      AmtPerQtyUnit     = waers;
+      AmtTot            = tnetwr;
+      AmtTotUnit        = twaers;
+      DeleteInd         = del_x;
+      Version           = revno;
+      Status            = statu;
+      OldStatus         = ostatu;
+      LocalCreatedBy      = local_created_by;
+      LocalCreatedAt      = local_created_at;
+      LocalLastChangedBy  = local_last_changed_by;
+      LocalLastChangedAt  = local_last_changed_at;
+      LastChangedAt       = last_changed_at;
+    }
+}
