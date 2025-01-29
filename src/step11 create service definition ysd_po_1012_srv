@@ -1,0 +1,5 @@
+@EndUserText.label: 'Purchase Order Service Def.'
+define service YSD_PO_1012_SRV {
+  expose YC_POHDR_1012 as Ekko;
+  expose YC_POITM_1012 as Ekpo;
+}
