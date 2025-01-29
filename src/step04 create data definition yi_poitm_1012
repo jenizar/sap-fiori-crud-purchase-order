@@ -1,0 +1,47 @@
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'PO Item View'
+@Metadata.ignorePropagatedAnnotations: true
+define view entity YI_POITM_1012 as select from ytbpoitm_1012
+association to parent YI_POHDR_1012 as _Ekko
+    on $projection.PONumber = _Ekko.PONumber    
+{
+  key ebeln as PONumber,
+  key ebelp as ItemNumber,
+      matnr              as Material,
+      werks              as Plant,
+      lgort              as Location,
+
+      @Semantics.quantity.unitOfMeasure: 'QtyUnit'
+      menge              as Qty,
+      meins              as QtyUnit,
+      @Semantics.quantity.unitOfMeasure: 'WeightUnit'
+      ntgew              as Weight,
+      gewei              as WeightUnit,
+      @Semantics.amount.currencyCode: 'AmtPerQtyUnit'
+      netwr              as AmtPerQty,
+      waers              as AmtPerQtyUnit,
+      @Semantics.amount.currencyCode: 'AmtTotUnit'
+      tnetwr             as AmtTot,
+      twaers             as AmtTotUnit,
+      del_x              as DeleteInd,
+      revno              as Version,
+      statu              as Status,
+      ostatu             as OldStatus,
+      
+      @Semantics.user.createdBy: true
+      local_created_by as LocalCreatedBy,
+      
+      @Semantics.systemDateTime.createdAt: true
+      local_created_at as LocalCreatedAt,
+      
+      @Semantics.user.lastChangedBy: true
+      local_last_changed_by as LocalLastChangedBy,
+      
+      @Semantics.systemDateTime.localInstanceLastChangedAt: true      
+      local_last_changed_at as LocalLastChangedAt,
+     
+      @Semantics.systemDateTime.lastChangedAt: true
+      last_changed_at as LastChangedAt,
+     
+      _Ekko // Make association public
+}
