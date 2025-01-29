@@ -1,0 +1,36 @@
+@EndUserText.label : 'PO Item'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table ytbpoitm_1012 {
+
+  key client            : abap.clnt not null;
+  key ebeln             : abap.char(10) not null;
+  key ebelp             : ebelp not null;
+  matnr                 : abap.char(40);
+  werks                 : abap.char(4);
+  lgort                 : abap.char(4);
+  @Semantics.quantity.unitOfMeasure : 'ytbpoitm_1012.meins'
+  menge                 : abap.quan(13,3);
+  meins                 : abap.unit(3);
+  @Semantics.quantity.unitOfMeasure : 'ytbpoitm_1012.gewei'
+  ntgew                 : abap.quan(13,3);
+  gewei                 : abap.unit(3);
+  @Semantics.amount.currencyCode : 'ytbpoitm_1012.waers'
+  netwr                 : abap.curr(15,2);
+  waers                 : abap.cuky;
+  @Semantics.amount.currencyCode : 'ytbpoitm_1012.twaers'
+  tnetwr                : abap.curr(15,2);
+  twaers                : abap.cuky;
+  del_x                 : abap.char(1);
+  revno                 : abap.char(8);
+  statu                 : abap.char(10);
+  ostatu                : abap.char(10);
+  local_created_by      : abp_creation_user;
+  local_created_at      : abp_creation_tstmpl;
+  local_last_changed_by : abp_locinst_lastchange_user;
+  local_last_changed_at : abp_locinst_lastchange_tstmpl;
+  last_changed_at       : abp_lastchange_tstmpl;
+
+}
