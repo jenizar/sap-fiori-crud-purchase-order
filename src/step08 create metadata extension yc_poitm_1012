@@ -1,0 +1,6 @@
+step08 create metadata extension yc_poitm_1012
+step09 create behavior definition yi_pohdr_1012
+step10 create behavior definition yc_pohdr_1012
+step11 create service definition ysd_po_1012_srv
+step12 create service binding yui_po_1012_app_v2
+
