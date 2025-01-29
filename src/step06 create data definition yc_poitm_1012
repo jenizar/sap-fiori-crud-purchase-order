@@ -1,0 +1,31 @@
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'PO Item APP'
+//@Metadata.ignorePropagatedAnnotations: true
+@Metadata.allowExtensions: true
+define view entity YC_POITM_1012 as projection on YI_POITM_1012
+{
+    key PONumber,
+    key ItemNumber,
+    Material,
+    Plant,
+    Location,
+    Qty,
+    QtyUnit,
+    Weight,
+    WeightUnit,
+    AmtPerQty,
+    AmtPerQtyUnit,
+    AmtTot,
+    AmtTotUnit,
+    DeleteInd,
+    Version,
+    Status,
+    OldStatus,
+    LocalCreatedBy,
+    LocalCreatedAt,
+    LocalLastChangedBy,
+    LocalLastChangedAt,
+    LastChangedAt,
+    /* Associations */
+    _Ekko : redirected to parent YC_POHDR_1012
+}
