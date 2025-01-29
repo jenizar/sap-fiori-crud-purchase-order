@@ -1,0 +1,12 @@
+step01 create table header ytbpohdr_1012.txt
+step02 create table item ytbpoitm_1012.txt
+step03 create data definition yi_pohdr_1012.txt
+step04 create data definition yi_poitm_1012.txt
+step05 create data definition yc_pohdr_1012.txt
+step06 create data definition yc_poitm_1012.txt
+step07 create metadata extension yc_pohdr_1012.txt
+step08 create metadata extension yc_poitm_1012.txt
+step09 create behavior definition yi_pohdr_1012.txt
+step10 create behavior definition yc_pohdr_1012.txt
+step11 create service definition ysd_po_1012_srv.txt
+step12 create service binding yui_po_1012_app_v2.txt
