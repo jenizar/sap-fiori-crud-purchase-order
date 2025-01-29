@@ -1,0 +1,27 @@
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Purchase Order APP'
+//@Metadata.ignorePropagatedAnnotations: true
+@Metadata.allowExtensions: true
+define root view entity YC_POHDR_1012 
+  provider contract transactional_query
+as projection on YI_POHDR_1012
+{
+    key PONumber,
+    CompanyCode,
+    DocCategory,
+    DocType,
+    Vendor,
+    DeleteInd,
+    Version,
+    TotAmt,
+    Currency,
+    Status,
+    LocalCreatedBy,
+    LocalCreatedAt,
+    LocalLastChangedBy,
+    LocalLastChangedAt,
+    LastChangedAt,
+    /* Associations */
+    _Ekpo : redirected to composition child YC_POITM_1012
+    //_association_name // Make association public
+}
