@@ -1,0 +1,26 @@
+@EndUserText.label : 'PO Header'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table ytbpohdr_1012 {
+
+  key client            : abap.clnt not null;
+  key ebeln             : abap.char(10) not null;
+  bukrs                 : bukrs;
+  bstyp                 : abap.char(1);
+  bsart                 : abap.char(4);
+  lifnr                 : elifn;
+  del_x                 : abap.char(1);
+  revno                 : abap.char(8);
+  waers                 : abap.cuky;
+  @Semantics.amount.currencyCode : 'ytbpohdr_1012.waers'
+  netwr                 : abap.curr(15,2);
+  statu                 : abap.char(10);
+  local_created_by      : abp_creation_user;
+  local_created_at      : abp_creation_tstmpl;
+  local_last_changed_by : abp_locinst_lastchange_user;
+  local_last_changed_at : abp_locinst_lastchange_tstmpl;
+  last_changed_at       : abp_lastchange_tstmpl;
+
+}
