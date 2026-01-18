@@ -1,6 +1,142 @@
-step08 create metadata extension yc_poitm_1012
-step09 create behavior definition yi_pohdr_1012
-step10 create behavior definition yc_pohdr_1012
-step11 create service definition ysd_po_1012_srv
-step12 create service binding yui_po_1012_app_v2
+//@Metadata.layer: layer
+@Metadata.layer: #CUSTOMER
+annotate entity YC_POITM_1012
+    with 
+{
+  @UI.facet: [{ //id : 'PO_Details_items',
+          purpose: #STANDARD,
+          type: #IDENTIFICATION_REFERENCE,
+          label: 'General Data',
+          position: 10
+       }]
+
+  @UI.hidden: true
+  PONumber;
+  
+  @EndUserText.label: 'Item Number'
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [{ position: 10 }]
+  @UI.selectionField: [{ position: 10 }]
+  ItemNumber;
+  
+  @EndUserText.label: 'Material'
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.identification: [{ position: 20 }]
+  @UI.selectionField: [{ position: 20 }]
+  Material;
+  
+  @EndUserText.label: 'Plant'
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.identification: [{ position: 30 }]
+  @UI.selectionField: [{ position: 30 }]
+  Plant;
+  
+  @EndUserText.label: 'Location'
+  @UI.lineItem: [ { position: 40 } ]
+  @UI.identification: [{ position: 40 }]
+  @UI.selectionField: [{ position: 40 }]
+  Location;
+  
+  @EndUserText.label: 'Quantity'
+  @UI.lineItem: [ { position: 50 } ]
+  @UI.identification: [{ position: 50 }]
+  @UI.selectionField: [{ position: 50 }]
+  Qty;
+  
+  @EndUserText.label: 'Quantity Unit'
+  @UI.lineItem: [ { position: 60 } ]
+  @UI.identification: [{ position: 60 }]
+  @UI.selectionField: [{ position: 60 }]
+  QtyUnit;
+  
+  @EndUserText.label: 'Weight'
+  @UI.lineItem: [ { position: 70 } ]
+  @UI.identification: [{ position: 70 }]
+  @UI.selectionField: [{ position: 70 }]
+  Weight;
+  
+  @EndUserText.label: 'Weight Unit'
+  @UI.lineItem: [ { position: 80 } ]
+  @UI.identification: [{ position: 80 }]
+  @UI.selectionField: [{ position: 80 }]
+  WeightUnit;
+  
+  @EndUserText.label: 'Amount Per Quantity'
+  @UI.lineItem: [ { position: 90 } ]
+  @UI.identification: [{ position: 90 }]
+  @UI.selectionField: [{ position: 90 }]
+  AmtPerQty;
+  
+  @EndUserText.label: 'Amount Per Quantity Unit'
+  @UI.lineItem: [ { position: 100 } ]
+  @UI.identification: [{ position: 100 }]
+  @UI.selectionField: [{ position: 100 }]
+  AmtPerQtyUnit;
+  
+  @EndUserText.label: 'Total Amount'
+  @UI.lineItem: [ { position: 110 } ]
+  @UI.identification: [{ position: 110 }]
+  @UI.selectionField: [{ position: 110 }]
+  AmtTot;
+  
+  @EndUserText.label: 'Total Amount Unit'
+  @UI.lineItem: [ { position: 120 } ]
+  @UI.identification: [{ position: 120 }]
+  @UI.selectionField: [{ position: 120 }]
+  AmtTotUnit;
+  
+  @EndUserText.label: 'Delete Indicator'
+  @UI.lineItem: [ { position: 130 } ]
+  @UI.identification: [{ position: 130 }]
+  @UI.selectionField: [{ position: 130 }]
+  DeleteInd;
+  
+  @EndUserText.label: 'Version'
+  @UI.lineItem: [ { position: 140 } ]
+  @UI.identification: [{ position: 140 }]
+  @UI.selectionField: [{ position: 140 }]
+  Version;
+  
+  @EndUserText.label: 'Status'
+  @UI.lineItem: [ { position: 150 } ]
+  @UI.identification: [{ position: 150 }]
+  @UI.selectionField: [{ position: 150 }]
+  Status;
+  
+  @EndUserText.label: 'Old Status'
+  @UI.lineItem: [ { position: 160 } ]
+  @UI.identification: [{ position: 160 }]
+  @UI.selectionField: [{ position: 160 }]
+  OldStatus;
+  
+  @EndUserText.label: 'Created by'
+  @UI.lineItem: [ { position: 170 } ]
+  @UI.identification: [{ position: 170 }]
+  @UI.selectionField: [{ position: 170 }]
+  LocalCreatedBy; 
+  
+  @EndUserText.label: 'Created at'
+  @UI.lineItem: [ { position: 180 } ]
+  @UI.identification: [{ position: 180 }]
+  @UI.selectionField: [{ position: 180 }]
+  LocalCreatedAt;   
+  
+  @EndUserText.label: 'Last change by'
+  @UI.lineItem: [ { position: 190 } ]
+  @UI.identification: [{ position: 190 }]
+  @UI.selectionField: [{ position: 190 }]
+  LocalLastChangedBy; 
+  
+  @EndUserText.label: 'Local last change at'
+  @UI.lineItem: [ { position: 200 } ]
+  @UI.identification: [{ position: 200 }]
+  @UI.selectionField: [{ position: 200 }]
+  LocalLastChangedAt;  
+  
+  @EndUserText.label: 'Last changed at (utc)'
+  @UI.lineItem: [ { position: 210 } ]
+  @UI.identification: [{ position: 210 }]
+  @UI.selectionField: [{ position: 210 }]
+  LastChangedAt;   
+}
 
