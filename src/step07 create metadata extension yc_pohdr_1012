@@ -1,12 +1,119 @@
-step01 create table header ytbpohdr_1012.txt
-step02 create table item ytbpoitm_1012.txt
-step03 create data definition yi_pohdr_1012.txt
-step04 create data definition yi_poitm_1012.txt
-step05 create data definition yc_pohdr_1012.txt
-step06 create data definition yc_poitm_1012.txt
-step07 create metadata extension yc_pohdr_1012.txt
-step08 create metadata extension yc_poitm_1012.txt
-step09 create behavior definition yi_pohdr_1012.txt
-step10 create behavior definition yc_pohdr_1012.txt
-step11 create service definition ysd_po_1012_srv.txt
-step12 create service binding yui_po_1012_app_v2.txt
+//@Metadata.layer: layer
+@Metadata.layer: #CUSTOMER
+@UI: { 
+        headerInfo: { 
+                        typeName: 'PO_Detail', typeNamePlural: 'Purchase Order',
+                        title: { type: #STANDARD, label: 'Purchase Order', value: 'PONumber'  }
+                    }
+}
+annotate entity YC_POHDR_1012
+    with 
+{
+  @EndUserText.label: 'Purchase Order'
+  @UI.lineItem: [{ position: 10 }]
+  @UI.selectionField: [{ position: 10 }]
+    @UI.facet: [{   //id : 'PO_Details', 
+                    purpose: #STANDARD, 
+                    type: #IDENTIFICATION_REFERENCE,
+                    label: 'General data',
+                    position: 10
+                },
+                
+                { 
+                    //id : 'PO_ITEM', 
+                    purpose: #STANDARD, 
+                    type: #LINEITEM_REFERENCE,
+                    label: 'Items',
+                    position: 20,
+                    targetElement: '_Ekpo'
+                }
+                ]
+    
+  @UI.identification: [ { position: 10 } ]
+  PONumber;
+
+  @EndUserText.label: 'Company Code'
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.identification: [{ position: 20 }]
+  @UI.selectionField: [{ position: 20 }]
+  CompanyCode;
+
+  @EndUserText.label: 'Doc.Category'
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.identification: [{ position: 30 }]
+  @UI.selectionField: [{ position: 30 }]
+  DocCategory;
+
+  @EndUserText.label: 'Doc.Type'
+  @UI.lineItem: [ { position: 40 } ]
+  @UI.identification: [{ position: 40 }]
+  @UI.selectionField: [{ position: 40 }]
+  DocType;
+
+  @EndUserText.label: 'Vendor'
+  @UI.lineItem: [ { position: 50 } ]
+  @UI.identification: [{ position: 50 }]
+  @UI.selectionField: [{ position: 50 }]
+  Vendor;
+
+  @EndUserText.label: 'Delete Indicator'
+  @UI.lineItem: [ { position: 60 } ]
+  @UI.identification: [{ position: 60 }]
+  @UI.selectionField: [{ position: 60 }]
+  DeleteInd;
+
+  @EndUserText.label: 'Version'
+  @UI.lineItem: [ { position: 70 } ]
+  @UI.identification: [{ position: 70 }]
+  @UI.selectionField: [{ position: 70 }]
+  Version;
+
+  @EndUserText.label: 'Total Amount'
+  @UI.lineItem: [ { position: 80 } ]
+  @UI.identification: [{ position: 80 }]
+  @UI.selectionField: [{ position: 80 }]
+  TotAmt;
+
+  @EndUserText.label: 'Currency'
+  @UI.lineItem: [ { position: 90 } ]
+  @UI.identification: [{ position: 90 }]
+  @UI.selectionField: [{ position: 90 }]
+  Currency;
+
+  @EndUserText.label: 'Status'
+  @UI.lineItem: [ { position: 100 } ]
+  @UI.identification: [{ position: 100 }]
+  @UI.selectionField: [{ position: 100 }]
+  Status;
+  
+  @EndUserText.label: 'Created by'
+  @UI.lineItem: [ { position: 110 } ]
+  @UI.identification: [{ position: 110 }]
+  @UI.selectionField: [{ position: 110 }]
+  LocalCreatedBy; 
+  
+  @EndUserText.label: 'Created at'
+  @UI.lineItem: [ { position: 120 } ]
+  @UI.identification: [{ position: 120 }]
+  @UI.selectionField: [{ position: 120 }]
+  LocalCreatedAt;   
+  
+  @EndUserText.label: 'Last change by'
+  @UI.lineItem: [ { position: 130 } ]
+  @UI.identification: [{ position: 130 }]
+  @UI.selectionField: [{ position: 130 }]
+  LocalLastChangedBy; 
+  
+  @EndUserText.label: 'Local last change at'
+  @UI.lineItem: [ { position: 140 } ]
+  @UI.identification: [{ position: 140 }]
+  @UI.selectionField: [{ position: 140 }]
+  LocalLastChangedAt;  
+  
+  @EndUserText.label: 'Last hanged at (utc)'
+  @UI.lineItem: [ { position: 150 } ]
+  @UI.identification: [{ position: 150 }]
+  @UI.selectionField: [{ position: 150 }]
+  LastChangedAt;   
+  
+}  
